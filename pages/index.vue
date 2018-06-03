@@ -12,6 +12,16 @@
         <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
         <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
       </div>
+
+      <section class="ip-address">
+        <div class="ip-address__title">
+          My IP address is: {{ ip }}
+        </div>
+
+        <div class="ip-address__button">
+          <button @click="fetchSomething">Get IP address</button>
+        </div>
+      </section>
     </div>
   </section>
 </template>
@@ -20,8 +30,19 @@
 import Logo from '~/components/Logo.vue'
 
 export default {
+  data() {
+    return {
+      ip: 'No ip address found yet',
+    }
+  },
   components: {
     Logo
+  },
+  methods: {
+    async fetchSomething() {
+      const ip = await this.$axios.$get('http://icanhazip.com');
+      this.ip = ip;
+    }
   }
 }
 </script>
@@ -55,5 +76,13 @@ export default {
 .links
 {
   padding-top: 15px;
+}
+
+.ip-address {
+  margin-top: 20px;
+}
+
+.ip-address__button {
+  margin-top: 20px;
 }
 </style>
