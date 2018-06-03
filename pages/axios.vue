@@ -21,7 +21,7 @@
 		},
 		methods: {
 			async fetchSomething() {
-				const ip = await this.$axios.$get('http://icanhazip.com');
+				const ip = await this.$axios.$get('https://icanhazip.com');
 				this.ip = ip;
 			}
 		}
