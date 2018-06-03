@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.1",
-    "nuxt": "^1.0.0"
+    "highcharts": "^6.1.0",
+    "nuxt": "^1.0.0",
+    "vue2-highcharts": "^1.2.4"
   },
   "devDependencies": {
     "cross-env": "^5.0.1"
