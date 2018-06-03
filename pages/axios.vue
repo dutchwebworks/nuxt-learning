@@ -1,51 +1,47 @@
 <template>
-  <section class="container axios">
-    <section class="ip-address">
-        <div class="ip-address__title">
-          My IP address is: {{ ip }}
-        </div>
+	<section class="container axios">
+		<section class="ip-address">
+			<div class="ip-address__title">
+				My IP address is: {{ ip }}
+			</div>
 
-        <div class="ip-address__button">
-          <button @click="fetchSomething">Get IP address</button>
-        </div>
-      </section>
-  </section>
+			<div class="ip-address__button">
+				<button @click="fetchSomething">Get IP address</button>
+			</div>
+		</section>
+	</section>
 </template>
 
 <script>
-  export default {
-    components: {
-
-    },
-    data() {
-      return {
-        ip: 'No ip address found yet',
-      }
-    },
-    methods: {
-      async fetchSomething() {
-        const ip = await this.$axios.$get('http://icanhazip.com');
-        this.ip = ip;
-      }
-    }
-  };
+	export default {
+		data() {
+			return {
+				ip: 'No ip address found yet',
+			}
+		},
+		methods: {
+			async fetchSomething() {
+				const ip = await this.$axios.$get('http://icanhazip.com');
+				this.ip = ip;
+			}
+		}
+	};
 </script>
 
 <style>
-  .container
-  {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
+	.container {
+		min-height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
 
-  .ip-address {
-    margin-top: 20px;
-  }
+	.ip-address {
+		margin-top: 20px;
+	}
 
-  .ip-address__button {
-    margin-top: 20px;
-  }
+	.ip-address__button {
+		margin-top: 20px;
+	}
 </style>
