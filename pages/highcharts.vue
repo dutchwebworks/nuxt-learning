@@ -1,5 +1,7 @@
 <template>
 	<section class="highcharts">
+		<LinkList/>
+
 		<h1>Highcharts</h1>
 
 		<vue-highcharts :options="highchartOptions"></vue-highcharts>
@@ -15,6 +17,7 @@
 <script>
 	import VueHighcharts from "vue2-highcharts";
 	import Highcharts from "highcharts";
+	import LinkList from "@/components/LinkList";
 
 	function sampleData(vm) {
 		return {
@@ -72,8 +75,12 @@
 
 	export default {
 		components: {
-			VueHighcharts
+			VueHighcharts,
+			LinkList
 		},
+		middleware: [
+			'check-login'
+		],
 		data() {
 			return {
 				barName: null,

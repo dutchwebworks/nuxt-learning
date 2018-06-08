@@ -1,5 +1,6 @@
 <template>
 	<section class="container axios">
+		<LinkList/>
 		<section class="ip-address">
 			<div class="ip-address__title">
 				My IP address is: {{ ip }}
@@ -13,7 +14,15 @@
 </template>
 
 <script>
+	import LinkList from "@/components/LinkList";
+
 	export default {
+		middleware: [
+			'check-login'
+		],
+		components: {
+			LinkList,
+		},
 		data() {
 			return {
 				ip: 'No ip address found yet',
