@@ -14,12 +14,12 @@ const createStore = () => {
 			}
 		},
 		mutations: {
-			login(state, username) {
-				state.username = username;
+			login(vuexContext, username) {
+				vuexContext.username = username;
 				this.$router.push("/dashboard");
 			},
-			logout(state) {
-				state.username = null;
+			logout(vuexContext) {
+				vuexContext.username = null;
 				this.$router.push("/");
 			}
 		}
