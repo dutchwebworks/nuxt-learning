@@ -7,22 +7,6 @@
 	</ul>
 </template>
 
-<script>
-	export default {
-		components: {
-
-		},
-		data() {
-			return {
-
-			}
-		},
-		methods: {
-
-		}
-	};
-</script>
-
 <style>
 	.demo-links {
 		margin: 40px 0 0 0;
