@@ -11,6 +11,27 @@
 				<a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
 				<a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
 			</div>
+
+			<ul class="demo-links">
+				<li><nuxt-link to="/highcharts">Highcharts demo</nuxt-link></li>
+				<li><nuxt-link to="/axios">Axios demo</nuxt-link></li>
+				<li><a href="https://www.github.com/dutchwebworks/nuxt-learning" target="_blank">View on GitHub</a></li>
+			</ul>
+
+			<form @submit.prevent="doLogin">
+				<fieldset>
+					<legend>Login</legend>
+
+					<p>
+						<label>Username</label>
+						<input type="text" v-model="username">
+					</p>
+
+					<p>
+						<input type="submit" name="submit" :disabled="!username">
+					</p>
+				</fieldset>
+			</form>
 		</div>
 	</section>
 </template>
@@ -21,6 +42,17 @@
 	export default {
 		components: {
 			Logo
+		},
+		data() {
+			return {
+				username: null
+			}
+		},
+		methods: {
+			doLogin() {
+				this.$store.commit("login", this.username);
+
+			}
 		}
 	}
 </script>
@@ -53,5 +85,23 @@
 
 	.links {
 		padding-top: 15px;
+	}
+
+	.demo-links {
+		margin: 40px 0 0 0;
+		padding: 0;
+	}
+
+	.demo-links li {
+		list-style: none;
+		margin-bottom: 5px;
+	}
+
+	.demo-links a {
+		color: deepskyblue;
+	}
+
+	.demo-links a:hover {
+		color: deeppink;
 	}
 </style>
