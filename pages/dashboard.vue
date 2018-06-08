@@ -7,12 +7,13 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptatum vero voluptatibus ullam deleniti sed natus dicta itaque, aperiam officiis?</p>
 
 		<p>
-			<button @click="logout">Logout</button>
+			<button @click="$store.commit('logout')">Logout</button>
 		</p>
 	</section>
 </template>
 
 <script>
+	import { mapGetters } from "vuex";
 	import LinkList from "@/components/LinkList";
 
 	export default {
@@ -22,26 +23,10 @@
 		middleware: [
 			'check-login'
 		],
-		data() {
-			return {
-
-			}
-		},
-		methods: {
-			logout() {
-				this.$store.commit("logout");
-			}
-		},
 		computed: {
-			username(){
-				return this.$store.getters.username;
-			}
+			...mapGetters([
+				"username"
+			])
 		}
 	};
 </script>
-
-<style>
-	.dashboard {
-
-	}
-</style>
