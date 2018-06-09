@@ -1,42 +1,30 @@
 <template>
-	<section class="container">
-		<div>
-			<logo/>
+	<main class="login">
+		<form @submit.prevent="doLogin">
+			<fieldset>
+				<legend>Login</legend>
 
-			<h1 class="title">nuxt-learning</h1>
+				<p>
+					<label>Username:</label>
 
-			<h2 class="subtitle">Learning about Nuxt</h2>
+					<input
+						type="text"
+						v-model="username">
 
-			<div class="links">
-				<a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
-				<a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
-			</div>
-
-			<form @submit.prevent="doLogin">
-				<fieldset>
-					<legend>Login</legend>
-
-					<p>
-						<label>Username</label>
-						<input type="text" v-model="username">
-					</p>
-
-					<p>
-						<input type="submit" name="submit" :disabled="!username">
-					</p>
-				</fieldset>
-			</form>
-		</div>
-	</section>
+					<input
+						type="submit"
+						name="submit"
+						:disabled="!username"
+						value="Login">
+				</p>
+			</fieldset>
+		</form>
+	</main>
 </template>
 
 <script>
-	import Logo from '~/components/Logo.vue'
-
 	export default {
-		components: {
-			Logo
-		},
+		layout: "non-logged-in",
 		data() {
 			return {
 				username: null
@@ -45,39 +33,13 @@
 		methods: {
 			doLogin() {
 				this.$store.commit("login", this.username);
-
 			}
 		}
 	}
 </script>
 
 <style>
-	.container {
-		min-height: 100vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-	}
+	.login {
 
-	.title {
-		font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-		display: block;
-		font-weight: 300;
-		font-size: 100px;
-		color: #35495e;
-		letter-spacing: 1px;
-	}
-
-	.subtitle {
-		font-weight: 300;
-		font-size: 42px;
-		color: #526488;
-		word-spacing: 5px;
-		padding-bottom: 15px;
-	}
-
-	.links {
-		padding-top: 15px;
 	}
 </style>

@@ -1,27 +1,15 @@
 <template>
-	<section class="container axios">
-		<LinkList/>
-		<section class="ip-address">
-			<div class="ip-address__title">
-				My IP address is: {{ ip }}
-			</div>
+	<main class="axios">
+		<p>{{ ip }}</p>
 
-			<div class="ip-address__button">
-				<button @click="fetchSomething">Get IP address</button>
-			</div>
-		</section>
-	</section>
+		<p><button @click="fetchSomething">Get IP address</button></p>
+	</main>
 </template>
 
 <script>
-	import LinkList from "@/components/LinkList";
-
 	export default {
-		middleware: [
-			'check-login'
-		],
 		components: {
-			LinkList,
+
 		},
 		data() {
 			return {
@@ -30,27 +18,14 @@
 		},
 		methods: {
 			async fetchSomething() {
-				const ip = await this.$axios.$get('https://icanhazip.com');
-				this.ip = ip;
+				this.ip = await this.$axios.$get('https://icanhazip.com');
 			}
 		}
 	};
 </script>
 
 <style>
-	.container {
-		min-height: 100vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-	}
+	.axios {
 
-	.ip-address {
-		margin-top: 20px;
-	}
-
-	.ip-address__button {
-		margin-top: 20px;
 	}
 </style>

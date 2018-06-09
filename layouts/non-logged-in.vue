@@ -1,7 +1,5 @@
 <template>
   <div class="app_container">
-  	<TheHeader/>
-
     <nuxt/>
 
   	<TheFooter/>
@@ -9,15 +7,10 @@
 </template>
 
 <script>
-	import TheHeader from "@/components/TheHeader";
 	import TheFooter from "@/components/TheFooter";
 
 	export default {
-		middleware: [
-			'authenticated'
-		],
 		components: {
-			TheHeader,
 			TheFooter
 		}
 	}

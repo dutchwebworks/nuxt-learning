@@ -1,7 +1,5 @@
 <template>
-	<section class="highcharts">
-		<LinkList/>
-
+	<main class="highcharts">
 		<h1>Highcharts</h1>
 
 		<vue-highcharts :options="highchartOptions"></vue-highcharts>
@@ -11,13 +9,31 @@
 
 			<p>Bar: {{ barName }} with the value: {{ barValue }}</p>
 		</div>
-	</section>
+	</main>
 </template>
 
 <script>
 	import VueHighcharts from "vue2-highcharts";
 	import Highcharts from "highcharts";
-	import LinkList from "@/components/LinkList";
+
+	export default {
+		components: {
+			VueHighcharts
+		},
+		data() {
+			return {
+				barName: null,
+				barValue: null,
+				highchartOptions: sampleData(this)
+			}
+		},
+		methods: {
+			updateUserData(payload) {
+				this.barName = payload.bar;
+				this.barValue = payload.value;
+			}
+		}
+	};
 
 	function sampleData(vm) {
 		return {
@@ -72,34 +88,10 @@
 			]
 		}
 	};
-
-	export default {
-		components: {
-			VueHighcharts,
-			LinkList
-		},
-		middleware: [
-			'check-login'
-		],
-		data() {
-			return {
-				barName: null,
-				barValue: null,
-				highchartOptions: sampleData(this)
-			}
-		},
-		methods: {
-			updateUserData(payload) {
-				this.barName = payload.bar;
-				this.barValue = payload.value;
-			}
-		}
-	};
 </script>
 
 <style>
 	.highcharts {
-		max-width: 800px;
-		margin: 0 auto;
+
 	}
 </style>
