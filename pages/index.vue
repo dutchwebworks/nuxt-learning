@@ -1,6 +1,6 @@
 <template>
 	<main class="login">
-		<form @submit.prevent="doLogin">
+		<form @submit.prevent="onSubmit">
 			<fieldset>
 				<legend class="heading">Login</legend>
 
@@ -9,6 +9,7 @@
 
 					<input
 						type="text"
+						placeholder="Anyting"
 						v-model="username">
 
 					<input
@@ -32,7 +33,7 @@
 			}
 		},
 		methods: {
-			doLogin() {
+			onSubmit() {
 				this.$store.commit("login", this.username);
 			}
 		}
