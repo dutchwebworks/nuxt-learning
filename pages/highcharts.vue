@@ -2,15 +2,17 @@
 	<main class="highcharts">
 		<h1 class="heading">Highcharts</h1>
 
-		<p class="paragraph">Example using Highcharts in Nuxt. <strong>Click on a bar in the graph.</strong></p>
-
-		<vue-highcharts :options="highchartOptions"></vue-highcharts>
+		<p class="paragraph">Example using Highcharts in Nuxt. <strong>Click on a pie slice.</strong></p>
 
 		<div v-show="barName != null">
 			<h2 class="sub-heading">User clicked:</h2>
 
-			<p class="paragraph">Bar: {{ barName }} with the value: {{ barValue }}</p>
+			<p class="paragraph">Slice name: <strong>{{ barName }}</strong></p>
+
+			<p class="paragraph">With the value: <strong>{{ barValue }}</strong></p>
 		</div>
+
+		<vue-highcharts :options="highchartOptions"></vue-highcharts>
 	</main>
 </template>
 
@@ -40,54 +42,57 @@
 	function sampleData(vm) {
 		return {
 			chart: {
-				type: "bar"
+				type: "pie"
 			},
-			title: "Historic World Population by Region",
+			title: "Frontend frameworks",
 			yAxis: {
-				catagories: [
-					"Africa",
-					"America",
-					"Asia",
-					"Europe",
-					"Oceania"
+				title: {
+					text: 'Total percent market share'
+				}
+			},
+			tooltip: {
+				formatter: function() {
+					return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
+				}
+			},
+			series: [{
+				data: [
+					["Vue", 12],
+					["Angular", 4],
+					["React", 3]
 				],
-				title: {
-					text: null
+				size: '90%',
+				innerSize: '70%',
+				showInLegend:true,
+				dataLabels: {
+					enabled: false
 				}
-			},
-			xAxis: {
-				min: 0,
-				title: {
-					text: "Population (millions)",
-					align: "high"
-				}
-			},
+			}],
 			plotOptions: {
+				pie: {
+					shadow: false
+				},
 				series: {
-					events: {
-						click() {
-							vm.updateUserData({
-								bar: this.name,
-								value: this.options.data[0]
-							});
+					cursor: "pointer",
+					colors: [
+						"#42b983",
+						"#C3002F",
+						"#61dafb"
+					],
+					point: {
+						events: {
+							click() {
+								console.log(this);
+
+								vm.updateUserData({
+									bar: this.options.name,
+									value: this.options.y
+								});
+							}
 						}
 					}
 				}
-			},
-			series: [
-				{
-					name: "Year 1800",
-					data: [107]
-				},
-				{
-					name: "Year 1900",
-					data: [200]
-				},
-				{
-					name: "Year 2012",
-					data: [250]
-				}
-			]
+			}
 		}
 	};
 </script>
