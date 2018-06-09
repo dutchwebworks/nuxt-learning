@@ -4,7 +4,7 @@
 
 		<p class="paragraph">Simple demo getting Ajax call from a IP address API</p>
 
-		<h2 class="paragraph">{{ ip }}</h2>
+		<h2 class="sub-heading">{{ ip }}</h2>
 
 		<p>
 			<button
