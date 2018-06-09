@@ -94,8 +94,4 @@
 
 <style lang="scss">
 	@import "scss/style";
-
-	.highcharts {
-
-	}
 </style>

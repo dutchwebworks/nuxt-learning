@@ -19,10 +19,16 @@
 }
 
 .button--02 {
-	background-color: map-get($colors, 02);	
+	background-color: map-get($colors, 02);
 }
 
 .button--03 {
 	color: map-get($colors, 03);
-	background-color: white;	
+	background-color: white;
+}
+
+.button--04 {
+	padding: 5px 10px;
+	font-size: 16px;
+	background-color: map-get($colors, 02);
 }

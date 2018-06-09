@@ -18,9 +18,6 @@
 
 <script>
 	export default {
-		components: {
-
-		},
 		data() {
 			return {
 				ip: 'No ip address found yet',
@@ -36,8 +33,4 @@
 
 <style lang="scss">
 	@import "scss/style";
-
-	.axios {
-
-	}
 </style>

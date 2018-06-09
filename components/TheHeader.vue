@@ -1,23 +1,28 @@
 <template>
 	<header class="header">
-		<h1 class="header__title">Nuxt learning</h1>
+		<div class="header__bar">
+			<h1 class="header__heading">SPA learning with Nuxt and Vue, Vuex and Nuxt routing</h1>
 
-		<h2 class="sub-heading">Welcome: {{ username }}</h2>
+			<p class="paragraph">
+				<button
+					class="button button--04"
+					@click="$store.commit('logout')">
+					Logout
+				</button>
+			</p>
+		</div>
 
-		<p class="paragraph">
-			<button
-				@click="$store.commit('logout')">
-				Logout
-			</button>
-		</p>
+		<div class="header__user">
+			<nav class="header__nav">
+				<nuxt-link
+					tag="a"
+					to="/dashboard">
+					Dashboard
+				</nuxt-link>
+			</nav>
 
-		<nav class="header__nav">
-			<nuxt-link
-				tag="a"
-				to="/dashboard">
-				Dashboard
-			</nuxt-link>
-		</nav>
+			<p class="paragraph">Logged in as: <strong>{{ username }}</strong></p>
+		</div>
 	</header>
 </template>
 
@@ -42,7 +47,25 @@
 		border-bottom: 1px solid map-get($colors, 04);
 	}
 
-	.header__title {
+	.header__bar,
+	.header__user {
+		@include flexbox;
+		@include justify-content(space-between);
+	}
+
+	.header__bar {
+		@include align-items(flex-start);
+	}
+
+	.header__user {
+		@include align-items(flex-end);
+
+		.paragraph {
+			margin-bottom: 0;
+		}
+	}
+
+	.header__heading {
 		color: map-get($colors, 02);
 		font-weight: 300;
 		font-size: 42px;
