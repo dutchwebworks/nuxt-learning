@@ -1,74 +1,24 @@
 <template>
-	<section class="highcharts">
-		<h1>Highcharts</h1>
+	<main class="highcharts">
+		<h1 class="heading">Highcharts</h1>
 
-		<vue-highcharts :options="highchartOptions"></vue-highcharts>
+		<p class="paragraph">Example using Highcharts in Nuxt. <strong>Click on a pie slice.</strong></p>
 
 		<div v-show="barName != null">
-			<h2>User clicked:</h2>
+			<h2 class="sub-heading">User clicked:</h2>
 
-			<p>Bar: {{ barName }} with the value: {{ barValue }}</p>
+			<p class="paragraph">Slice name: <strong>{{ barName }}</strong></p>
+
+			<p class="paragraph">With the value: <strong>{{ barValue }}</strong></p>
 		</div>
-	</section>
+
+		<vue-highcharts :options="highchartOptions"></vue-highcharts>
+	</main>
 </template>
 
 <script>
 	import VueHighcharts from "vue2-highcharts";
 	import Highcharts from "highcharts";
-
-	function sampleData(vm) {
-		return {
-			chart: {
-				type: "bar"
-			},
-			title: "Historic World Population by Region",
-			yAxis: {
-				catagories: [
-					"Africa",
-					"America",
-					"Asia",
-					"Europe",
-					"Oceania"
-				],
-				title: {
-					text: null
-				}
-			},
-			xAxis: {
-				min: 0,
-				title: {
-					text: "Population (millions)",
-					align: "high"
-				}
-			},
-			plotOptions: {
-				series: {
-					events: {
-						click() {
-							vm.updateUserData({
-								bar: this.name,
-								value: this.options.data[0]
-							});
-						}
-					}
-				}
-			},
-			series: [
-				{
-					name: "Year 1800",
-					data: [107]
-				},
-				{
-					name: "Year 1900",
-					data: [200]
-				},
-				{
-					name: "Year 2012",
-					data: [250]
-				}
-			]
-		}
-	};
 
 	export default {
 		components: {
@@ -88,11 +38,65 @@
 			}
 		}
 	};
+
+	function sampleData(vm) {
+		return {
+			chart: {
+				type: "pie"
+			},
+			title: "Frontend frameworks",
+			yAxis: {
+				title: {
+					text: 'Total percent market share'
+				}
+			},
+			tooltip: {
+				formatter: function() {
+					return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
+				}
+			},
+			series: [{
+				data: [
+					["Vue", 12],
+					["Angular", 4],
+					["React", 3]
+				],
+				size: '90%',
+				innerSize: '70%',
+				showInLegend:true,
+				dataLabels: {
+					enabled: false
+				}
+			}],
+			plotOptions: {
+				pie: {
+					shadow: false
+				},
+				series: {
+					cursor: "pointer",
+					colors: [
+						"#42b983",
+						"#C3002F",
+						"#61dafb"
+					],
+					point: {
+						events: {
+							click() {
+								console.log(this);
+
+								vm.updateUserData({
+									bar: this.options.name,
+									value: this.options.y
+								});
+							}
+						}
+					}
+				}
+			}
+		}
+	};
 </script>
 
-<style>
-	.highcharts {
-		max-width: 800px;
-		margin: 0 auto;
-	}
+<style lang="scss">
+	@import "scss/style";
 </style>

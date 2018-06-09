@@ -1,57 +1,110 @@
 <template>
-	<section class="container">
-		<div>
-			<logo/>
-
-			<h1 class="title">nuxt-learning</h1>
-
-			<h2 class="subtitle">Learning about Nuxt</h2>
-
-			<div class="links">
-				<a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
-				<a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
+	<main class="login">
+		<header class="header">
+			<div class="header__bar">
+				<h1 class="header__title">SPA learning with Nuxt and Vue, Vuex and Nuxt routing</h1>
 			</div>
-		</div>
-	</section>
+		</header>
+
+		<form @submit.prevent="onSubmit">
+			<fieldset class="login__fieldset">
+				<h2 class="heading">Login</h2>
+
+				<p class="paragraph">Login using any username</p>
+
+				<div class="login__input">
+					<label class="paragraph">Username:</label>
+
+					<input
+						type="text"
+						class="login__field"
+						placeholder="Anyting"
+						v-model="username">
+
+					<input
+						type="submit"
+						name="submit"
+						class="button button--01"
+						:disabled="!username"
+						value="Login">
+				</div>
+			</fieldset>
+		</form>
+	</main>
 </template>
 
 <script>
-	import Logo from '~/components/Logo.vue'
-
 	export default {
-		components: {
-			Logo
+		layout: "non-logged-in",
+		data() {
+			return {
+				username: null
+			}
+		},
+		methods: {
+			onSubmit() {
+				this.$store.commit("login", this.username);
+			}
 		}
 	}
 </script>
 
-<style>
-	.container {
-		min-height: 100vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
+<style lang="scss">
+	@import "scss/style";
+
+	.header {
+		margin-bottom: 30px;
+		padding-bottom: 10px;
+		border-bottom: 1px solid map-get($colors, 04);
 	}
 
-	.title {
-		font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-		display: block;
-		font-weight: 300;
-		font-size: 100px;
-		color: #35495e;
-		letter-spacing: 1px;
+	.header__bar,
+	.header__user {
+		@include flexbox;
+		@include justify-content(space-between);
 	}
 
-	.subtitle {
+	.header__bar {
+		@include align-items(flex-start);
+	}
+
+	.header__user {
+		@include align-items(flex-end);
+
+		.sub-heading {
+			margin-bottom: 0;
+		}
+	}
+
+	.header__title {
+		color: map-get($colors, 02);
 		font-weight: 300;
 		font-size: 42px;
-		color: #526488;
-		word-spacing: 5px;
-		padding-bottom: 15px;
+		font-family: $font-custom;
 	}
 
-	.links {
-		padding-top: 15px;
+	.login__fieldset {
+		border: 0;
+		margin: 0;
+		padding: 0;
+	}
+
+	.login__input {
+		@include flexbox;
+		@include align-items(center);
+
+		.paragraph,
+		.login__field,
+		.button {
+			margin-right: 20px;
+		}
+	}
+
+	.login__field {
+		width: 200px;
+		box-sizing: border-box;
+		padding: 15px;
+		border-radius: $border-radius;
+		border: 2px solid #ccc;
 	}
 </style>

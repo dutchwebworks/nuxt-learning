@@ -1,15 +1,19 @@
 <template>
-	<section class="container axios">
-		<section class="ip-address">
-			<div class="ip-address__title">
-				My IP address is: {{ ip }}
-			</div>
+	<main class="axios">
+		<h1 class="heading">Axios demo</h1>
 
-			<div class="ip-address__button">
-				<button @click="fetchSomething">Get IP address</button>
-			</div>
-		</section>
-	</section>
+		<p class="paragraph">Simple demo getting Ajax call from a IP address API</p>
+
+		<h2 class="sub-heading">{{ ip }}</h2>
+
+		<p>
+			<button
+				@click="fetchIpAddress"
+				class="button button--02">
+				Get my IP address
+			</button>
+		</p>
+	</main>
 </template>
 
 <script>
@@ -20,28 +24,13 @@
 			}
 		},
 		methods: {
-			async fetchSomething() {
-				const ip = await this.$axios.$get('https://icanhazip.com');
-				this.ip = ip;
+			async fetchIpAddress() {
+				this.ip = await this.$axios.$get('https://icanhazip.com');
 			}
 		}
 	};
 </script>
 
-<style>
-	.container {
-		min-height: 100vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-	}
-
-	.ip-address {
-		margin-top: 20px;
-	}
-
-	.ip-address__button {
-		margin-top: 20px;
-	}
+<style lang="scss">
+	@import "scss/style";
 </style>

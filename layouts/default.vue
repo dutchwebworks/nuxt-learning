@@ -1,53 +1,63 @@
 <template>
-  <div>
+  <div class="app__container">
+  	<TheHeader/>
+
     <nuxt/>
+
+  	<TheFooter/>
   </div>
 </template>
 
-<style>
-html
-{
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-*, *:before, *:after
-{
-  box-sizing: border-box;
-  margin: 0;
-}
-.button--green
-{
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-.button--green:hover
-{
-  color: #fff;
-  background-color: #3b8070;
-}
-.button--grey
-{
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-.button--grey:hover
-{
-  color: #fff;
-  background-color: #35495e;
-}
+<script>
+	import TheHeader from "@/components/TheHeader";
+	import TheFooter from "@/components/TheFooter";
+
+	export default {
+		middleware: [
+			'authenticated'
+		],
+		components: {
+			TheHeader,
+			TheFooter
+		}
+	}
+</script>
+
+<style lang="scss">
+	@import "scss/style";
+
+	.app__container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.page-enter-active {
+	  animation: routerSlideIn .3s ease-out forwards;
+	}
+
+	.page-leave-active {
+	  animation: routerSlideOut .3s ease-out forwards;
+	}
+
+	@keyframes routerSlideIn {
+		0% {
+			opacity: 0;
+			transform: translateY(10px);
+		}
+
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes routerSlideOut {
+		0% {
+			opacity: 1;
+		}
+
+		100% {
+			opacity: 0;
+		}
+	}
 </style>
