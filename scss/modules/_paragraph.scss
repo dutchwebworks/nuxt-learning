@@ -1,0 +1,10 @@
+.paragraph {
+	color: map-get($colors, 03);
+	font-size: 16px;
+	line-height: 1.6;
+	font-family: $font-custom;
+
+	strong {
+		font-weight: 700;
+	}
+}

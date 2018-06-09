@@ -1,5 +1,5 @@
 <template>
-  <div class="app_container">
+  <div class="app__container">
   	<TheHeader/>
 
     <nuxt/>
@@ -23,8 +23,10 @@
 	}
 </script>
 
-<style>
-	.app_container {
+<style lang="scss">
+	@import "scss/style";
+
+	.app__container {
 		max-width: 1200px;
 		margin: 0 auto;
 	}

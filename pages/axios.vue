@@ -1,8 +1,18 @@
 <template>
 	<main class="axios">
-		<p>{{ ip }}</p>
+		<h1 class="heading">Axios demo</h1>
 
-		<p><button @click="fetchSomething">Get IP address</button></p>
+		<p class="paragraph">Simple demo getting Ajax call from a IP address API</p>
+
+		<h2 class="paragraph">{{ ip }}</h2>
+
+		<p>
+			<button
+				@click="fetchIpAddress"
+				class="button button--02">
+				Get my IP address
+			</button>
+		</p>
 	</main>
 </template>
 
@@ -17,14 +27,16 @@
 			}
 		},
 		methods: {
-			async fetchSomething() {
+			async fetchIpAddress() {
 				this.ip = await this.$axios.$get('https://icanhazip.com');
 			}
 		}
 	};
 </script>
 
-<style>
+<style lang="scss">
+	@import "scss/style";
+
 	.axios {
 
 	}

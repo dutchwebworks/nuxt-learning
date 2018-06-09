@@ -1,13 +1,15 @@
 <template>
 	<main class="highcharts">
-		<h1>Highcharts</h1>
+		<h1 class="heading">Highcharts</h1>
+
+		<p class="paragraph">Example using Highcharts in Nuxt. <strong>Click on a bar in the graph.</strong></p>
 
 		<vue-highcharts :options="highchartOptions"></vue-highcharts>
 
 		<div v-show="barName != null">
-			<h2>User clicked:</h2>
+			<h2 class="sub-heading">User clicked:</h2>
 
-			<p>Bar: {{ barName }} with the value: {{ barValue }}</p>
+			<p class="paragraph">Bar: {{ barName }} with the value: {{ barValue }}</p>
 		</div>
 	</main>
 </template>
@@ -90,7 +92,9 @@
 	};
 </script>
 
-<style>
+<style lang="scss">
+	@import "scss/style";
+
 	.highcharts {
 
 	}

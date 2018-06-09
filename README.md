@@ -1,22 +1,20 @@
-# nuxt-learning
+# Nuxt learning
 
-> Learning about Nuxt
+Learning about Nuxt and VueJS in a SPA (Single-Page-App) setup using `create-nuxt-app` CLI-command.
 
-## Build Setup
+*By Dennis Burger, june 2018*
 
 ``` bash
 # install dependencies
-$ yarn install
+$ npm install install
 
 # serve with hot reload at localhost:3000
-$ yarn run dev
+$ npm run dev
 
 # build for production and launch server
-$ yarn run build
-$ yarn start
+$ npm run build
+$ npm start
 
 # generate static project
-$ yarn run generate
+$ npm run generate
 ```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).

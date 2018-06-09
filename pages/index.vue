@@ -2,9 +2,9 @@
 	<main class="login">
 		<form @submit.prevent="doLogin">
 			<fieldset>
-				<legend>Login</legend>
+				<legend class="heading">Login</legend>
 
-				<p>
+				<p class="paragraph">
 					<label>Username:</label>
 
 					<input
@@ -14,6 +14,7 @@
 					<input
 						type="submit"
 						name="submit"
+						class="button button--01"
 						:disabled="!username"
 						value="Login">
 				</p>
@@ -38,7 +39,9 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
+	@import "scss/style";
+
 	.login {
 
 	}
