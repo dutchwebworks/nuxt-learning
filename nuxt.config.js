@@ -67,4 +67,14 @@ module.exports = {
     */
     dir: 'docs'
   }
+
+  /*
+  ** Page transitions
+  */
+
+  transition: {
+  	name: 'page',
+  	mode: 'out-in',
+  	type: 'animation'
+  }
 }
