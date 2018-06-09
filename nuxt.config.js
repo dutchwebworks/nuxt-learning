@@ -66,7 +66,7 @@ module.exports = {
     ** Github Pages will use ./docs for site root
     */
     dir: 'docs'
-  }
+  },
 
   /*
   ** Page transitions
