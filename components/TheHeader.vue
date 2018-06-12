@@ -39,7 +39,7 @@
 </script>
 
 <style lang="scss">
-	@import "scss/style";
+	@import "scss/helpers";
 
 	.header {
 		margin-bottom: 30px;

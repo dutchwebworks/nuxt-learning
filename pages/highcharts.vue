@@ -98,5 +98,5 @@
 </script>
 
 <style lang="scss">
-	@import "scss/style";
+	@import "scss/helpers";
 </style>
