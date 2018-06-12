@@ -23,7 +23,7 @@
 </template>
 
 <style lang="scss">
-	@import "~/scss/helpers.scss";
+	@import "~/assets/scss/helpers.scss";
 
 	.dashboard__nav {
 		display: grid;
