@@ -29,6 +29,10 @@
 						value="Login">
 				</div>
 			</fieldset>
+
+			<p class="vue-logo">
+				<img src="~/static/img/vue-logo.svg" alt="Vue logo">
+			</p>
 		</form>
 	</main>
 </template>
@@ -106,5 +110,9 @@
 		padding: 15px;
 		border-radius: $border-radius;
 		border: 2px solid #ccc;
+	}
+
+	.vue-logo {
+		text-align: center;
 	}
 </style>
