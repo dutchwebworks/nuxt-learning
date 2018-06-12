@@ -39,7 +39,7 @@
 </script>
 
 <style lang="scss">
-	@import "scss/style";
+	@import "~/assets/scss/helpers.scss";
 
 	.header {
 		margin-bottom: 30px;
@@ -83,5 +83,11 @@
 	.header__nav a.is-active {
 		color: map-get($colors, 03);
 		visibility: hidden;
+	}
+
+	.header__nav {
+		.nuxt-link-exact-active {
+			visibility: hidden;
+		}
 	}
 </style>
