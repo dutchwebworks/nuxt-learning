@@ -23,7 +23,7 @@
                 default: "deepskyblue"
             },
             value: {
-                type: String
+                type: Boolean
             }
         }
     };
