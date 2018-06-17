@@ -17,7 +17,8 @@
 
                 <p class="paragraph">
                     <Checkbox
-                        v-model="product">
+                        v-model="product"
+                        theme="blue">
                         Subscribe to our e-mail product newsletter?
                     </Checkbox>                        
                 </p>

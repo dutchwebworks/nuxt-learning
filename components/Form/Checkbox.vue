@@ -3,6 +3,7 @@
         <input
             type="checkbox"
             class="checkbox-toggle"
+            :class="theme"
             :checked="value"
             @change="$emit('input', $event.target.checked)">
 
@@ -17,6 +18,7 @@
 
     export default {
         props: [
+            "theme",
             "value"
         ],
         data() {
