@@ -18,7 +18,7 @@
                 <p class="paragraph">
                     <Checkbox
                         v-model="product"
-                        theme="blue">
+                        theme="deeppink">
                         Subscribe to our e-mail product newsletter?
                     </Checkbox>                        
                 </p>
@@ -40,7 +40,7 @@
         },
         data() {
             return {
-                newsletter: false,
+                newsletter: true,
                 product: false
             }
         },

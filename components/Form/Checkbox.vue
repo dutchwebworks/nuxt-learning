@@ -17,10 +17,15 @@
     // https://medium.com/@relt24/dedicated-vue-js-checkbox-component-360a330a3eb
 
     export default {
-        props: [
-            "theme",
-            "value"
-        ]
+        props: {
+            theme: {
+                type: String,
+                default: "deepskyblue"
+            },
+            value: {
+                type: String
+            }
+        }
     };
 </script>
 
@@ -87,7 +92,9 @@
     .checkbox-toggle[type="checkbox"].yellow:checked { background: #FFE842; box-shadow: inset 0 0 0 15px #FFE842; }
     .checkbox-toggle[type="checkbox"].green:checked { background: #50DF3D; box-shadow: inset 0 0 0 15px #50DF3D; }
     .checkbox-toggle[type="checkbox"].blue:checked { background: #40A7ED; box-shadow: inset 0 0 0 15px #40A7ED; }
+    .checkbox-toggle[type="checkbox"].deepskyblue:checked { background: deepskyblue; box-shadow: inset 0 0 0 15px deepskyblue; }
     .checkbox-toggle[type="checkbox"].purple:checked { background: #AF57EC; box-shadow: inset 0 0 0 15px #AF57EC; }
+    .checkbox-toggle[type="checkbox"].deeppink:checked { background: deeppink; box-shadow: inset 0 0 0 15px deeppink; }
 
     /* End CSS from */
 
