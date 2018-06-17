@@ -14,7 +14,7 @@
 
 	export default {
 		middleware: [
-			// 'authenticated'
+			'authenticated'
 		],
 		components: {
 			TheHeader,
