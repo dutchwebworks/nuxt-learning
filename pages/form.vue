@@ -11,7 +11,6 @@
                 <p class="paragraph">
                     <Checkbox
                         v-model="newsletter">
-                        Subscribe to our e-mail montly newsletter?
                     </Checkbox>                        
                 </p>
 

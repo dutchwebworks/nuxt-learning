@@ -7,7 +7,7 @@
             :checked="value"
             @change="$emit('input', $event.target.checked)">
 
-        <span class="custom-checkbox__label">
+        <span v-if="this.$slots.default" class="custom-checkbox__label">
             <slot/>
         </span>        
     </label>
@@ -20,15 +20,7 @@
         props: [
             "theme",
             "value"
-        ],
-        data() {
-            return {
-
-            }
-        },
-        methods: {
-
-        }
+        ]
     };
 </script>
 
