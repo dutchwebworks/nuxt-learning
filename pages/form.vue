@@ -23,8 +23,23 @@
                     </Checkbox>                        
                 </p>
 
+                <p class="paragraph">
+                    <input
+                    type="text"
+                    @blur="$v.username.$touch()"
+                    v-model.trim="$v.username.$model">
+                    Username
+
+                    <span v-if="$v.username.$error" class="error">Username is required</span>
+                </p>
+                
+
                 <p>
-                    <input type="submit" class="button button--01" value="Send">
+                    <input
+                        type="submit"
+                        class="button button--01"
+                        value="Send"
+                        :disabled="$v.$invalid">
                 </p>
             </fieldset>
         </form>
@@ -33,6 +48,7 @@
 
 <script>
     import Checkbox from "~/components/Form/Checkbox";
+    import { required } from "vuelidate/lib/validators";
 
     export default {
         components: {
@@ -41,19 +57,26 @@
         data() {
             return {
                 newsletter: true,
-                product: false
+                product: false,
+                username: null,
             }
         },
         methods: {
             sendForm() {
                 alert("Form send");
             }
+        },
+        validations: {
+            username: {
+                required,
+            }
         }
     };
 </script>
 
 <style>
-    .form {
-
+    .error {
+        display: block;
+        color: red;
     }
 </style>
