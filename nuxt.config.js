@@ -35,7 +35,14 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-      { src: "~/plugins/Vuelidate.js", ssr: true }
+      { 
+        src: "~/plugins/localStorage.js",
+        ssr: false
+      },
+      { 
+        src: "~/plugins/Vuelidate.js",
+        ssr: true
+      }
   ],
 
   /*
