@@ -1,29 +1,18 @@
+import Vue from "vue";
 import Vuex from "vuex";
+import Auth from "./modules/auth";
 
-const createStore = () => {
+Vue.use(Vuex)
+
+const store = () => {
 	return new Vuex.Store({
 		state: {
-			username: null
+
 		},
-		getters: {
-			username(state) {
-				return state.username;
-			},
-			isAuthenticated(state) {
-				return state.username != null;
-			}
-		},
-		mutations: {
-			login(vuexContext, username) {
-				vuexContext.username = username;
-				this.$router.push("/dashboard");
-			},
-			logout(vuexContext) {
-				vuexContext.username = null;
-				this.$router.push("/");
-			}
+		modules: {
+			Auth
 		}
-	});
+	})
 }
 
-export default createStore;
+export default store;
