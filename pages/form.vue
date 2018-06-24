@@ -20,26 +20,14 @@
                         v-model="product"
                         theme="deeppink">
                         Subscribe to our e-mail product newsletter?
-                    </Checkbox>                        
-                </p>
-
-                <p class="paragraph">
-                    <input
-                    type="text"
-                    @blur="$v.username.$touch()"
-                    v-model.trim="$v.username.$model">
-                    Username
-
-                    <span v-if="$v.username.$error" class="error">Username is required</span>
-                </p>
-                
+                    </Checkbox>              
+                </p>                
 
                 <p>
                     <input
                         type="submit"
                         class="button button--01"
-                        value="Send"
-                        :disabled="$v.$invalid">
+                        value="Send">
                 </p>
             </fieldset>
         </form>
@@ -57,18 +45,12 @@
         data() {
             return {
                 newsletter: true,
-                product: false,
-                username: null,
+                product: false
             }
         },
         methods: {
             sendForm() {
                 alert("Form send");
-            }
-        },
-        validations: {
-            username: {
-                required,
             }
         }
     };
