@@ -1,22 +1,22 @@
-const state = () => {
+const state = () => ({
 	username: null
-};
+});
 
 const getters = {
-	username: state => {
+	username(state) {
 		return state.username;
 	},
-	isAuthenticated: state => {
+	isAuthenticated(state) {
 		return state.username != null;
 	}
 };
 
 const mutations = {
-	login: (vuexContext, username) => {
+	login(vuexContext, username) {
 		vuexContext.username = username;
 		this.$router.push("/dashboard");
 	},
-	logout: vuexContext => {
+	logout(vuexContext) {
 		vuexContext.username = null;
 		this.$router.push("/");
 	}
