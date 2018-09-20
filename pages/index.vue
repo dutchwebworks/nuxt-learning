@@ -54,8 +54,6 @@
 </script>
 
 <style lang="scss">
-	@import "~/assets/scss/helpers.scss";
-
 	.header {
 		margin-bottom: 30px;
 		padding-bottom: 10px;

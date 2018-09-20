@@ -32,8 +32,6 @@
 </template>
 
 <style lang="scss">
-	@import "~/assets/scss/helpers.scss";
-
 	.dashboard__nav {
 		display: grid;
 		grid-gap: 10px;

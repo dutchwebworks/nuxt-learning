@@ -49,7 +49,13 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    ['nuxt-sass-resources-loader', [
+      '@/assets/scss/helpers/_config.scss',
+      '@/assets/scss/helpers/_flexbox.scss',
+      '@/assets/scss/helpers/_grid.scss',
+      '@/assets/scss/helpers/_respond-to.scss'
+    ]]
   ],
 
   /*

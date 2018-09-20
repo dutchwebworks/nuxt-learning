@@ -7,8 +7,6 @@
 </template>
 
 <style lang="scss">
-	@import "~/assets/scss/helpers.scss";
-
 	.footer {
 		@include display-grid;
 		@include grid-template-columns(1fr 1fr);
