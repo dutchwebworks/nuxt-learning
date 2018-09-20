@@ -98,5 +98,4 @@
 </script>
 
 <style lang="scss">
-	@import "~/assets/scss/helpers.scss";
 </style>
