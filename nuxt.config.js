@@ -42,6 +42,10 @@ module.exports = {
       { 
         src: "~/plugins/Vuelidate.js",
         ssr: true
+      },
+      {
+        src: "~/plugins/slugify.js",
+        ssr: true
       }
   ],
 
