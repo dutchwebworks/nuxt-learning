@@ -12,7 +12,7 @@
                     <Checkbox
                         v-model="newsletter">
                         Subscribe to our e-mail montly newsletter?
-                    </Checkbox>                        
+                    </Checkbox>
                 </p>
 
                 <p class="paragraph">
@@ -20,8 +20,16 @@
                         v-model="product"
                         theme="deeppink">
                         Subscribe to our e-mail product newsletter?
-                    </Checkbox>              
-                </p>                
+                    </Checkbox>
+                </p>
+
+                <p class="paragraph">
+                    <Checkbox
+                        v-model="backlog"
+                        theme="purple">
+                        Wanna be on our backlog?
+                    </Checkbox>
+                </p>
 
                 <p>
                     <input
@@ -44,14 +52,39 @@
         },
         data() {
             return {
-                newsletter: true,
-                product: false
+
             }
         },
         methods: {
             sendForm() {
                 alert("Form send");
             }
+        },
+        computed: {
+        	newsletter: {
+        		get() {
+        			return this.$store.getters.newsletter;
+        		},
+        		set(value) {
+        			this.$store.commit("newsletter", value);
+        		}
+        	},
+        	product: {
+        		get() {
+        			return this.$store.getters.product;
+        		},
+        		set(value) {
+        			this.$store.commit("product", value);
+        		}
+        	},
+        	backlog: {
+        		get() {
+        			return this.$store.getters.backlog;
+        		},
+        		set(value) {
+        			this.$store.commit("backlog", value);
+        		}
+        	}
         }
     };
 </script>

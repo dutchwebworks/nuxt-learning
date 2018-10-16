@@ -36,11 +36,15 @@ module.exports = {
   */
   plugins: [
       { 
-        src: "~/plugins/localStorage.js",
+        src: "@/plugins/localStorage.js",
         ssr: false
       },
       { 
-        src: "~/plugins/Vuelidate.js",
+        src: "@/plugins/Vuelidate.js",
+        ssr: true
+      },
+      {
+        src: "@/plugins/slugify.js",
         ssr: true
       }
   ],
