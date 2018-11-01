@@ -27,6 +27,15 @@
 				exact-active-class="is-exact">
 				Form
 			</nuxt-link>
+
+			<nuxt-link
+				tag="div"
+				to="/news"
+				class="dashboard__nav-item"
+				active-class="is-active"
+				exact-active-class="is-exact">
+				News
+			</nuxt-link>
 		</nav>
 	</main>
 </template>

@@ -1,6 +1,8 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import Auth from "./modules/auth";
+import Auth from "./modules/Auth";
+import Form from "./modules/Form";
+import News from "./modules/News";
 
 Vue.use(Vuex)
 
@@ -10,7 +12,9 @@ const store = () => {
 
 		},
 		modules: {
-			Auth
+			Auth,
+			Form,
+			News
 		}
 	})
 }
