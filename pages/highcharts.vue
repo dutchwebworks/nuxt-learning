@@ -24,13 +24,11 @@
 		components: {
 			VueHighcharts
 		},
-		data() {
-			return {
-				barName: null,
-				barValue: null,
-				highchartOptions: sampleData(this)
-			}
-		},
+		data: () => ({
+			barName: null,
+			barValue: null,
+			highchartOptions: sampleData(this)
+		}),
 		methods: {
 			updateUserData(payload) {
 				this.barName = payload.bar;

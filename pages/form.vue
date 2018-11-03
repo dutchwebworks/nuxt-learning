@@ -50,11 +50,9 @@
         components: {
             Checkbox
         },
-        data() {
-            return {
-
-            }
-        },
+        data: () => ({
+			
+		}),
         methods: {
             sendForm() {
                 alert("Form send");

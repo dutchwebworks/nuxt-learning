@@ -18,11 +18,9 @@
 
 <script>
 	export default {
-		data() {
-			return {
-				ip: 'No ip address found yet',
-			}
-		},
+		data: () => ({
+			ip: 'No ip address found yet',
+		}),
 		methods: {
 			async fetchIpAddress() {
 				this.ip = await this.$axios.$get('https://icanhazip.com');

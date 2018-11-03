@@ -40,11 +40,9 @@
 <script>
 	export default {
 		layout: "non-logged-in",
-		data() {
-			return {
-				username: null
-			}
-		},
+		data: () => ({
+			username: null			
+		}),
 		methods: {
 			onSubmit() {
 				this.$store.commit("login", this.username);
