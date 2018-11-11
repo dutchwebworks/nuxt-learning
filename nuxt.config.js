@@ -85,12 +85,14 @@ module.exports = {
     }
   },
 
+  buildDir: 'dist',
+
   /*
   ** Generate configuration
   */
 
   generate: {
-
+    
   },
 
   /*
