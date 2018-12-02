@@ -46,10 +46,6 @@ module.exports = {
       {
         src: "@/plugins/slugify.js",
         ssr: true
-      },
-      {
-        src: "~/plugins/slugify.js",
-        ssr: true
       }
   ],
 
