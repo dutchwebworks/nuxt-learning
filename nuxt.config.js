@@ -55,13 +55,19 @@ module.exports = {
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
-    ['nuxt-sass-resources-loader', [
-      '@/assets/scss/helpers/_config.scss',
-      '@/assets/scss/helpers/_flexbox.scss',
-      '@/assets/scss/helpers/_grid.scss',
-      '@/assets/scss/helpers/_respond-to.scss'
-    ]]
+    // Doc: https://www.npmjs.com/package/@nuxtjs/style-resources
+    '@nuxtjs/style-resources',
   ],
+
+  /*
+  ** Nuxt.js global style resources
+  */
+  styleResources: {
+    // Doc: https://www.npmjs.com/package/@nuxtjs/style-resources
+    scss: [
+      '@/assets/scss/helpers/*.scss'
+    ]
+  },
   /*
   ** Axios module configuration
   */
@@ -93,7 +99,7 @@ module.exports = {
   ** Page transitions
   */
 
-  transition: {
+  pageTransition: {
   	name: 'page',
   	mode: 'out-in',
   	type: 'animation'
