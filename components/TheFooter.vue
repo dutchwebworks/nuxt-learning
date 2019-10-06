@@ -8,8 +8,8 @@
 
 <style lang="scss">
 	.footer {
-		@include display-grid;
-		@include grid-template-columns(1fr 1fr);
+		display: grid;
+		grid-template-columns: 1fr 1fr;
 	}
 
 	.footer__body,
