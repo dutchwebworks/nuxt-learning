@@ -83,7 +83,10 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-
+      if (ctx.isDev) {
+        // https://medium.com/js-dojo/debugging-nuxt-js-with-vs-code-60a1a9e75cf6
+        config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
+      }
     }
   },
 
