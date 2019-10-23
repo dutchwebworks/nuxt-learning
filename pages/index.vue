@@ -31,7 +31,7 @@
 			</fieldset>
 
 			<p class="vue-logo">
-				<img src="~/static/img/vue-logo.svg" alt="Vue logo">
+				<img src="~/assets/img/vue-logo.svg" alt="Vue logo">
 			</p>
 		</form>
 	</main>
