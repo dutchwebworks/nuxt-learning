@@ -45,7 +45,7 @@
 		}),
 		methods: {
 			onSubmit() {
-				this.$store.commit("login", this.username);
+				this.$store.commit("Auth/LOGIN", this.username);
 			}
 		}
 	}

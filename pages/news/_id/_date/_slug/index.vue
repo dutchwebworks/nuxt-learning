@@ -20,7 +20,7 @@
         name: "NewsDetail",
         computed: {
             newsItem() {
-                return this.$store.getters.newsItem(this.$route.params.id);
+                return this.$store.getters["News/newsItem"](this.$route.params.id);
             }
         }
     };
