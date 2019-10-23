@@ -6,7 +6,7 @@
 			<p class="paragraph">
 				<button
 					class="button button--04"
-					@click="$store.commit('logout')">
+					@click="$store.commit('Auth/LOGOUT')">
 					Logout
 				</button>
 			</p>
@@ -31,9 +31,9 @@
 
 	export default {
 		computed: {
-			...mapGetters([
-				"username"
-			])
+			...mapGetters({
+				username: "Auth/username"
+			})
 		}
 	};
 </script>

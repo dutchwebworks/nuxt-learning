@@ -22,7 +22,7 @@
 		},
         computed: {
             newsItems() {
-                return this.$store.getters.news;
+				return this.$store.getters["News/news"];
             }
         }
     };

@@ -61,26 +61,26 @@
         computed: {
         	newsletter: {
         		get() {
-        			return this.$store.getters.newsletter;
+        			return this.$store.getters["Form/newsletter"];
         		},
         		set(value) {
-        			this.$store.commit("newsletter", value);
+        			this.$store.commit("Form/SET_NEWSLETTER", value);
         		}
         	},
         	product: {
         		get() {
-        			return this.$store.getters.product;
+                    return this.$store.getters["Form/product"];
         		},
         		set(value) {
-        			this.$store.commit("product", value);
+        			this.$store.commit("Form/SET_PRODUCT", value);
         		}
         	},
         	backlog: {
         		get() {
-        			return this.$store.getters.backlog;
+                    return this.$store.getters["Form/backlog"];
         		},
         		set(value) {
-        			this.$store.commit("backlog", value);
+        			this.$store.commit("Form/SET_BACKLOG", value);
         		}
         	}
         }
