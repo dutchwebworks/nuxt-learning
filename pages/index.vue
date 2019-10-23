@@ -31,7 +31,7 @@
 			</fieldset>
 
 			<p class="vue-logo">
-				<img src="~/static/img/vue-logo.svg" alt="Vue logo">
+				<img src="~/assets/img/vue-logo.svg" alt="Vue logo">
 			</p>
 		</form>
 	</main>
@@ -45,7 +45,7 @@
 		}),
 		methods: {
 			onSubmit() {
-				this.$store.commit("login", this.username);
+				this.$store.commit("Auth/LOGIN", this.username);
 			}
 		}
 	}

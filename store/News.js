@@ -1,4 +1,4 @@
-const state = () => ({
+export const state = () => ({
     news: [
         {
             id: 0,
@@ -43,7 +43,7 @@ const state = () => ({
     ]
 });
 
-const getters = {
+export const getters = {
     news: state => {
         return state.news;
     },
@@ -52,14 +52,8 @@ const getters = {
     }
 };
 
-const mutations = {
-    news: (state, value) => {
+export const mutations = {
+    SET_NEWS: (state, value) => {
         state.news = value;
     }
-};
-
-export default {
-    state,
-    getters,
-    mutations
 };

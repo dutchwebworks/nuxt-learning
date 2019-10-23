@@ -24,8 +24,6 @@
 </script>
 
 <style lang="scss">
-	@import "~/assets/scss/helpers.scss";
-
 	.app__container {
 		max-width: 1200px;
 		margin: 0 auto;
