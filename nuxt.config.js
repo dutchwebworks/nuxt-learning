@@ -1,6 +1,19 @@
 const pkg = require('./package')
 
 module.exports = {
+  /*
+  ** Nuxt env. variables
+  */
+  env: {
+    newsApi: {
+      baseUrl: "https://newsapi.org/v2",
+      key: "cddd1f30937b4e908153f7448e18adf8"
+    }
+  },
+
+  /*
+  ** Nuxt build mode
+  */
   mode: 'universal',
 
   /*
@@ -22,7 +35,7 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#FFFFFF' },
+  loading: { color: 'deeppink' },
 
   /*
   ** Global CSS

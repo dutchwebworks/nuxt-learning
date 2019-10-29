@@ -1,0 +1,100 @@
+<template>
+    <main class="world-news">
+        <h1 class="heading">News of today</h1>
+
+        <p class="paragraph">Using a service -file to easily fetch data from a news source</p>
+
+        <p
+            v-show="!newsLoaded">
+            <button
+                @click="getNews"
+                :disabled="newsLoaded"
+                class="button button--02"
+                :class="{ 'is-loading': isLoading }">
+                Get news!
+            </button>
+        </p>
+
+        <p v-show="isLoading">
+            Loading news &hellip;
+        </p>
+
+        <h3
+            v-show="newsLoaded"
+            class="world-news__sub-title">
+            Total results: {{ worldNews.totalResults }} world news items, showing
+        </h3>
+
+        <section
+            v-show="newsLoaded"
+            class="world-news__container">        
+            <WorldNewsItem
+                v-for="(item, index) in worldNews.articles"
+                :item="item"
+                :key="index">
+            </WorldNewsItem>
+        </section>
+    </main>
+</template>
+
+<script>
+import WorldNewsItem from "@/components/WorldNewsItem";
+import WorldNewsService from "@/services/WorldNewsService.js";
+
+export default {
+    components: {
+        WorldNewsItem,
+    },
+    data() {
+        return {
+            worldNews: [],
+            newsLoaded: false,
+            isLoading: false,
+        }
+    },
+    methods: {
+        getNews() {
+            this.$nuxt.$loading.start();
+            this.isLoading = true;
+
+            WorldNewsService.getNews({
+                category: "technology",
+                pageSize: 15,
+            })
+            .then(response => {
+                this.worldNews = response.data;
+                this.newsLoaded = true;
+                this.isLoading = false;
+                this.$nuxt.$loading.finish()
+            });
+        }
+    }
+}
+</script>
+
+<style lang="scss">
+// ---------------------------------------------
+// Block
+// ---------------------------------------------
+
+.world-news {
+    font-family: $font-custom;
+}
+
+// ---------------------------------------------
+// Element
+// ---------------------------------------------
+
+.world-news__container {
+    @include respond-to-min('tablet') {        
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+// ---------------------------------------------
+// Modifier
+// ---------------------------------------------
+
+</style>
