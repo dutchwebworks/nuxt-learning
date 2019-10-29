@@ -8,7 +8,7 @@
 
 		<p>
 			<button
-				@click="fetchIpAddress"
+				@click="getIpAddress"
 				class="button button--02">
 				Get my IP address
 			</button>
@@ -17,16 +17,25 @@
 </template>
 
 <script>
-	export default {
-		data: () => ({
-			ip: 'No ip address found yet',
-		}),
-		methods: {
-			async fetchIpAddress() {
-				this.ip = await this.$axios.$get('https://icanhazip.com');
-			}
+import IpService from "@/services/IpService.js";
+
+export default {
+	data: () => ({
+		ip: 'No ip address found yet',
+	}),
+	methods: {
+		getIpAddress() {
+			IpService
+				.getIpAddress()
+				.then(response => {
+					this.ip = response.data;
+				})
+				.catch(error => {
+					console.log(error);
+				});
 		}
-	};
+	}
+};
 </script>
 
 <style lang="scss">

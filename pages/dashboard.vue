@@ -9,7 +9,6 @@
 				exact-active-class="is-exact">
 				Axios
 			</nuxt-link>
-
 			<nuxt-link
 				tag="div"
 				to="/highcharts"
@@ -18,7 +17,6 @@
 				exact-active-class="is-exact">
 				Highcharts
 			</nuxt-link>
-
 			<nuxt-link
 				tag="div"
 				to="/form"
@@ -27,7 +25,6 @@
 				exact-active-class="is-exact">
 				Form
 			</nuxt-link>
-
 			<nuxt-link
 				tag="div"
 				to="/news"
@@ -35,6 +32,15 @@
 				active-class="is-active"
 				exact-active-class="is-exact">
 				News
+			</nuxt-link>
+			</nuxt-link>
+			<nuxt-link
+				tag="div"
+				to="/world-news"
+				class="dashboard__nav-item"
+				active-class="is-active"
+				exact-active-class="is-exact">
+				World News
 			</nuxt-link>
 		</nav>
 	</main>
