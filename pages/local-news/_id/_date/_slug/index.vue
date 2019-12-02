@@ -1,13 +1,13 @@
 <template>
-    <section class="news-detail">
+    <section class="local-news-detail">
         <img
-            class="news-detail-thumbnail"
+            class="local-news-detail-thumbnail"
             v-bind:src="newsItem.thumbnail"
             v-bind:alt="newsItem.title">
 
-        <h1 class="news-detail-title">{{ newsItem.title }}</h1>        
+        <h1 class="local-news-detail-title">{{ newsItem.title }}</h1>        
 
-        <p class="news-detail-date">
+        <p class="local-news-detail-date">
             <small>{{ newsItem.dateNice }}</small>
         </p>
 
@@ -17,31 +17,32 @@
 
 <script>
     export default {
-        name: "NewsDetail",
         computed: {
             newsItem() {
-                return this.$store.getters["News/newsItem"](this.$route.params.id);
+                return this.$store.getters["LocalNews/getItem"](this.$route.params.id);
             }
         }
     };
 </script>
 
 <style lang="scss">
-    .news-detail {
+    .local-local-news-detail {
         margin-top: 40px;
         font-family: $font-custom;
     }
 
-    .news-detail-title {
+    .local-news-detail-title {
+        font-family: $font-custom;
         color: map-get($colors, 02);
     }
 
-    .news-detail-thumbnail {
+    .local-news-detail-thumbnail {
 		box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.25);
     }
     
-    .news-detail-date {
+    .local-news-detail-date {
 		font-size: 18px;
+        font-family: $font-custom;
 		color: map-get($colors, 01);
 	}
 </style>

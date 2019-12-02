@@ -44,16 +44,10 @@ export const state = () => ({
 });
 
 export const getters = {
-    news: state => {
+    getList: state => {
         return state.news;
     },
-    newsItem: (state) => (id) => {
+    getItem: (state) => (id) => {
         return state.news.find(item => item.id == id);
-    }
-};
-
-export const mutations = {
-    SET_NEWS: (state, value) => {
-        state.news = value;
     }
 };

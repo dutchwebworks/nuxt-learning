@@ -13,6 +13,9 @@
 	import TheFooter from "@/components/TheFooter";
 
 	export default {
+		middleware: [
+			'authenticated'
+		],
 		components: {
 			TheHeader,
 			TheFooter

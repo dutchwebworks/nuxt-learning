@@ -1,14 +1,23 @@
 <template>
 	<header class="header">
 		<div class="header__bar">
-			<h1 class="header__heading">SPA learning with Nuxt and Vue, Vuex and Nuxt routing</h1>
+			<h1 class="header__heading">SPA learning with Nuxt, Vue, Vuex and vue-router</h1>
 
 			<p class="paragraph">
 				<button
+					v-if="isAuthenticated"
 					class="button button--04"
 					@click="$store.commit('Auth/LOGOUT')">
 					Logout
 				</button>
+
+				<nuxt-link
+					v-else
+					tag="button"
+					class="button button--04"
+					to="/login">
+					Login
+				</nuxt-link>				
 			</p>
 		</div>
 
@@ -16,12 +25,17 @@
 			<nav class="header__nav">
 				<nuxt-link
 					tag="a"
-					to="/dashboard">
+					to="/">
 					Dashboard
 				</nuxt-link>
+
 			</nav>
 
-			<p class="paragraph">Logged in as: <strong>{{ username }}</strong></p>
+			<div 
+				v-show="isAuthenticated"
+				class="header__username">
+				Logged in as: <strong>{{ username }}</strong>
+			</div>
 		</div>
 	</header>
 </template>
@@ -31,8 +45,9 @@
 
 	export default {
 		computed: {
-			...mapGetters({
-				username: "Auth/username"
+			...mapGetters("Auth", {
+				username: "username",
+				isAuthenticated: "isAuthenticated"
 			})
 		}
 	};
@@ -87,5 +102,10 @@
 		.nuxt-link-exact-active {
 			visibility: hidden;
 		}
+	}
+
+	.header__username {
+		color: map-get($colors, 03);
+		font-family: $font-custom;
 	}
 </style>
