@@ -14,11 +14,11 @@ export const getters = {
 export const mutations = {
 	LOGIN(context, username) {
 		context.username = username;
-		this.$router.push("/dashboard");
+		this.$router.push("/secret");
 	},
 	LOGOUT(context) {
 		context.username = null;
-		this.$router.push("/");
+		this.$router.push("/logout");
 	}
 };
 

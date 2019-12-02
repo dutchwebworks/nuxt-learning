@@ -1,114 +1,94 @@
 <template>
-	<main class="login">
-		<header class="header">
-			<div class="header__bar">
-				<h1 class="header__title">SPA learning with Nuxt and Vue, Vuex and Nuxt routing</h1>
-			</div>
-		</header>
-
-		<form @submit.prevent="onSubmit">
-			<fieldset class="login__fieldset">
-				<h2 class="heading">Login</h2>
-
-				<p class="paragraph">Login using any username</p>
-
-				<div class="login__input">
-					<label class="paragraph">Username:</label>
-
-					<input
-						type="text"
-						class="login__field"
-						placeholder="Anyting"
-						v-model="username">
-
-					<input
-						type="submit"
-						name="submit"
-						class="button button--01"
-						:disabled="!username"
-						value="Login">
-				</div>
-			</fieldset>
-
-			<p class="vue-logo">
-				<img src="~/assets/img/vue-logo.svg" alt="Vue logo">
-			</p>
-		</form>
+	<main class="dashboard">
+		<nav class="dashboard__nav">
+			<nuxt-link
+				tag="div"
+				to="/axios"
+				class="dashboard__nav-item"
+				active-class="is-active"
+				exact-active-class="is-exact">
+				Axios
+			</nuxt-link>
+			<nuxt-link
+				tag="div"
+				to="/highcharts"
+				class="dashboard__nav-item"
+				active-class="is-active"
+				exact-active-class="is-exact">
+				Highcharts
+			</nuxt-link>
+			<nuxt-link
+				tag="div"
+				to="/form"
+				class="dashboard__nav-item"
+				active-class="is-active"
+				exact-active-class="is-exact">
+				Form
+			</nuxt-link>
+			<nuxt-link
+				tag="div"
+				to="/local-news"
+				class="dashboard__nav-item"
+				active-class="is-active"
+				exact-active-class="is-exact">
+				Local News
+			</nuxt-link>
+			</nuxt-link>
+			<nuxt-link
+				tag="div"
+				to="/world-news"
+				class="dashboard__nav-item"
+				active-class="is-active"
+				exact-active-class="is-exact">
+				World News
+			</nuxt-link>
+			<nuxt-link
+				tag="div"
+				to="/secret"
+				class="dashboard__nav-item"
+				active-class="is-active"
+				exact-active-class="is-exact">
+				Secret page
+			</nuxt-link>
+		</nav>
 	</main>
 </template>
 
-<script>
-	export default {
-		layout: "non-logged-in",
-		data: () => ({
-			username: null			
-		}),
-		methods: {
-			onSubmit() {
-				this.$store.commit("Auth/LOGIN", this.username);
+<style lang="scss">
+	.dashboard__nav {
+		display: grid;
+		grid-gap: 10px;
+		grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+		grid-auto-rows: 175px;
+
+		> div {
+			@include flexbox;
+			@include flex-direction(column);
+			@include justify-content(center);
+			@include align-items(center);
+			border-radius: $border-radius;
+			text-align: center;
+			font-weight: 700;
+			font-size: 24px;
+			color: white;
+			cursor: pointer;
+			font-family: $font-custom;
+			transition: background-color .3s, font-size .3s;
+			background-color: map-get($colors, 01);
+
+			&:hover {
+				font-size: 30px;
+				background-color: map-get($colors, 02);
 			}
 		}
 	}
-</script>
 
-<style lang="scss">
-	.header {
-		margin-bottom: 30px;
-		padding-bottom: 10px;
-		border-bottom: 1px solid map-get($colors, 04);
-	}
-
-	.header__bar,
-	.header__user {
-		@include flexbox;
-		@include justify-content(space-between);
-	}
-
-	.header__bar {
-		@include align-items(flex-start);
-	}
-
-	.header__user {
-		@include align-items(flex-end);
-
-		.sub-heading {
-			margin-bottom: 0;
-		}
-	}
-
-	.header__title {
-		color: map-get($colors, 02);
-		font-weight: 300;
-		font-size: 42px;
-		font-family: $font-custom;
-	}
-
-	.login__fieldset {
-		border: 0;
-		margin: 0;
-		padding: 0;
-	}
-
-	.login__input {
-		@include flexbox;
-		@include align-items(center);
-
-		.paragraph,
-		.login__field,
-		.button {
-			margin-right: 20px;
-		}
-	}
-
-	.login__field {
-		width: 200px;
-		box-sizing: border-box;
-		padding: 15px;
-		border-radius: $border-radius;
-		border: 2px solid #ccc;
-	}
-
-	.vue-logo {
+	.dashboard_logo {
 		text-align: center;
+	}
+
+	.dashboard_logo-img {
+		width: 400px;
+		height: auto;
 	}
 </style>

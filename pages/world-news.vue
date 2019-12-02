@@ -4,17 +4,6 @@
 
         <p class="paragraph">Using a service -file to easily fetch data from a news source</p>
 
-        <p
-            v-show="!newsLoaded">
-            <button
-                @click="getNews"
-                :disabled="newsLoaded"
-                class="button button--02"
-                :class="{ 'is-loading': isLoading }">
-                Get news!
-            </button>
-        </p>
-
         <p v-show="isLoading">
             Loading news &hellip;
         </p>
@@ -52,14 +41,20 @@ export default {
             isLoading: false,
         }
     },
+    created() {
+        this.getNews({
+            category: "technology",
+            pageSize: 15,
+        });
+    },
     methods: {
-        getNews() {
+        getNews(options) {
             this.$nuxt.$loading.start();
             this.isLoading = true;
 
             WorldNewsService.getNews({
-                category: "technology",
-                pageSize: 15,
+                category: options.category,
+                pageSize: options.pageSize,
             })
             .then(response => {
                 this.worldNews = response.data;

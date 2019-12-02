@@ -1,5 +1,5 @@
 export const state = () => ({
-    news: [
+    localNews: [
         {
             id: 0,
             title: "Zeldzame tropische storm Leslie richt ravage aan in Portugal",
@@ -44,16 +44,10 @@ export const state = () => ({
 });
 
 export const getters = {
-    news: state => {
-        return state.news;
+    getList: state => {
+        return state.localNews;
     },
-    newsItem: (state) => (id) => {
-        return state.news.find(item => item.id == id);
-    }
-};
-
-export const mutations = {
-    SET_NEWS: (state, value) => {
-        state.news = value;
+    getItem: (state) => (id) => {
+        return state.localNews.find(item => item.id == id);
     }
 };
