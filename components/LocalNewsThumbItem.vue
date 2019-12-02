@@ -58,6 +58,7 @@
 
 	.local-news__item-date {
 		font-size: 18px;
+        font-family: $font-custom;
 		color: map-get($colors, 01);
 	}
 </style>
