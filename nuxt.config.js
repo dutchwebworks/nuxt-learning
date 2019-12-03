@@ -27,8 +27,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,700' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
@@ -70,7 +69,18 @@ module.exports = {
     '@nuxtjs/axios',
     // Doc: https://www.npmjs.com/package/@nuxtjs/style-resources
     '@nuxtjs/style-resources',
+    // Doc: https://github.com/Developmint/nuxt-webfontloader
+    'nuxt-webfontloader'
   ],
+
+  /*
+  ** Web font loader
+  */
+  webfontloader: {
+    google: {
+      families: ['Roboto:300,400,700&display=swap']
+    }
+  },
 
   /*
   ** Nuxt.js global style resources
