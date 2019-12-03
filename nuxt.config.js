@@ -1,4 +1,7 @@
 const pkg = require('./package')
+import PurgecssPlugin from 'purgecss-webpack-plugin'
+import glob from 'glob-all'
+import path from 'path'
 
 module.exports = {
   /*
@@ -40,6 +43,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    "~/assets/css/tailwind.css",
   	"@/assets/scss/common.scss"
   ],
 
@@ -72,7 +76,9 @@ module.exports = {
     // Doc: https://github.com/Developmint/nuxt-webfontloader
     'nuxt-webfontloader',
     // Doc: https://www.npmjs.com/package/@nuxtjs/markdownit
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
+    // Doc: https://regenrek.com/posts/how-to-use-tailwind-css-1.0.1-in-nuxt/#bonus-use-purgecss-to-remove-unused-css-in-the-production-build
+    'nuxt-purgecss',
   ],
 
 
@@ -105,6 +111,16 @@ module.exports = {
       '@/assets/scss/helpers/*.scss'
     ]
   },
+
+  // https://regenrek.com/posts/how-to-use-tailwind-css-1.0.1-in-nuxt/#bonus-use-purgecss-to-remove-unused-css-in-the-production-build
+  purgeCSS: {
+    // https://www.purgecss.com/whitelisting#specific-selectors
+    whitelist: [
+
+    ],
+    whitelistPatterns: [/^is-/],
+  },
+
   /*
   ** Axios module configuration
   */
@@ -117,6 +133,14 @@ module.exports = {
   */
   build: {
     // analyze: true,
+    extractCSS: true,
+    // https://regenrek.com/posts/how-to-use-tailwind-css-1.0.1-in-nuxt/#4-configure-postcss-in-nuxtconfigjs
+    postcss: {
+      plugins: {
+        tailwindcss: path.resolve(__dirname, './tailwind.config.js')
+      }
+    },
+
     /*
     ** You can extend webpack config here
     */
