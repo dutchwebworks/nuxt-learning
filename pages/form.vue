@@ -47,6 +47,12 @@
     import { required } from "vuelidate/lib/validators";
 
     export default {
+		head: {
+			title: "Custom form components",
+			meta: [
+				{ hid: "description", name: "description", content: "Testing custom form components" }
+			]
+		},
         components: {
             Checkbox
         },

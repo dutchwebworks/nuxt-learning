@@ -20,6 +20,12 @@
 	import LocalNewsThumbItem from "@/components/LocalNewsThumbItem";
 
     export default {
+		head: {
+			title: "Local news",
+			meta: [
+				{ hid: "description", name: "description", content: "Demo of local news via Vuex store news array" }
+			]
+		},
 		components: {
 			LocalNewsThumbItem
 		},

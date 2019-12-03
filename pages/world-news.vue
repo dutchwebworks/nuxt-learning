@@ -31,6 +31,12 @@ import WorldNewsItem from "@/components/WorldNewsItem";
 import WorldNewsService from "@/services/WorldNewsService.js";
 
 export default {
+    head: {
+        title: "Latest world news",
+        meta: [
+            { hid: "description", name: "description", content: "News from a News API service" }
+        ]
+    },
     components: {
         WorldNewsItem,
     },

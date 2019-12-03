@@ -9,7 +9,12 @@
 
 <script>
 	export default {
-
+		head: {
+			title: "Highcharts demo",
+			meta: [
+				{ hid: "description", name: "description", content: "Testing Highcharts charts" }
+			]
+		}
 	}
 </script>
 

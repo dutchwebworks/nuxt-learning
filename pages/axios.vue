@@ -20,6 +20,12 @@
 import IpService from "@/services/IpService.js";
 
 export default {
+	head: {
+		title: "Axios demo",
+		meta: [
+			{ hid: "description", name: "description", content: "Using Axios to get your IP number" }
+		]
+	},
 	data: () => ({
 		ip: 'No ip address found yet',
 	}),

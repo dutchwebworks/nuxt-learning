@@ -13,6 +13,12 @@
 	import { mapGetters } from "vuex";
 
 	export default {
+		head: {
+			title: "Secret page",
+			meta: [
+				{ hid: "description", name: "description", content: "Welcome to our secret page" }
+			]
+		},
 		layout: "logged-in",
 		computed: {
 			...mapGetters("Auth", {

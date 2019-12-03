@@ -54,6 +54,17 @@
 	</main>
 </template>
 
+<script>
+	export default {
+		head: {
+			title: "Dashboard",
+			meta: [
+				{ hid: "description", name: "description", content: "Various demo's on learning Nuxt and Vue" }
+			]
+		}		
+	}
+</script>
+
 <style lang="scss">
 	.dashboard__nav {
 		display: grid;
