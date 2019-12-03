@@ -23,6 +23,9 @@ module.exports = {
   ** Headers of the page
   */
   head: {
+    htmlAttrs: {
+      lang: 'en-US',
+    },
     title: pkg.name,
     meta: [
       { charset: 'utf-8' },
@@ -69,24 +72,19 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
-    // Doc: https://www.npmjs.com/package/@nuxtjs/style-resources
     '@nuxtjs/style-resources',
-    // Doc: https://github.com/Developmint/nuxt-webfontloader
     'nuxt-webfontloader',
-    // Doc: https://www.npmjs.com/package/@nuxtjs/markdownit
     '@nuxtjs/markdownit',
-    // Doc: https://regenrek.com/posts/how-to-use-tailwind-css-1.0.1-in-nuxt/#bonus-use-purgecss-to-remove-unused-css-in-the-production-build
     'nuxt-purgecss',
+    "@nuxtjs/sitemap"
   ],
-
 
   /*
   ** Markdown options
+  ** https://www.npmjs.com/package/@nuxtjs/markdownit
+  ** See https://github.com/markdown-it/markdown-it
   */
-  // [optional] markdownit options
-  // See https://github.com/markdown-it/markdown-it
   markdownit: {
     preset: 'default',
     linkify: true,
@@ -95,6 +93,7 @@ module.exports = {
 
   /*
   ** Web font loader
+  ** https://github.com/Developmint/nuxt-webfontloader
   */
   webfontloader: {
     google: {
@@ -103,16 +102,35 @@ module.exports = {
   },
 
   /*
+  ** Sitemap options
+  ** https://www.npmjs.com/package/@nuxtjs/sitemap
+  */
+  sitemap: {
+    hostname: "https://nuxt-learning.herokuapp.com",
+    exclude: [
+      "/secret"
+    ],
+    defaults: {
+      changefreq: "yearly",
+      lastmod: new Date(),
+      lastmodrealtime: true
+    }
+  },
+
+  /*
   ** Nuxt.js global style resources
+  ** https://www.npmjs.com/package/@nuxtjs/style-resources
   */
   styleResources: {
-    // Doc: https://www.npmjs.com/package/@nuxtjs/style-resources
     scss: [
       '@/assets/scss/helpers/*.scss'
     ]
   },
 
-  // https://regenrek.com/posts/how-to-use-tailwind-css-1.0.1-in-nuxt/#bonus-use-purgecss-to-remove-unused-css-in-the-production-build
+  /*
+  ** Nuxt.js global style resources
+  ** https://regenrek.com/posts/how-to-use-tailwind-css-1.0.1-in-nuxt/#bonus-use-purgecss-to-remove-unused-css-in-the-production-build
+  */
   purgeCSS: {
     // https://www.purgecss.com/whitelisting#specific-selectors
     whitelist: [
@@ -123,9 +141,19 @@ module.exports = {
 
   /*
   ** Axios module configuration
+  ** https://github.com/nuxt-community/axios-module#usage
+  ** https://github.com/nuxt-community/axios-module#options
   */
   axios: {
-    // See https://github.com/nuxt-community/axios-module#options
+
+  },
+
+  /*
+  ** Router config
+  */
+  router: {
+    // linkActiveClass: "is-active",
+    // linkExactActiveClass: "is-exact-active"
   },
 
   /*
