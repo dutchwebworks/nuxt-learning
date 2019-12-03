@@ -70,8 +70,22 @@ module.exports = {
     // Doc: https://www.npmjs.com/package/@nuxtjs/style-resources
     '@nuxtjs/style-resources',
     // Doc: https://github.com/Developmint/nuxt-webfontloader
-    'nuxt-webfontloader'
+    'nuxt-webfontloader',
+    // Doc: https://www.npmjs.com/package/@nuxtjs/markdownit
+    '@nuxtjs/markdownit'
   ],
+
+
+  /*
+  ** Markdown options
+  */
+  // [optional] markdownit options
+  // See https://github.com/markdown-it/markdown-it
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true
+  },
 
   /*
   ** Web font loader

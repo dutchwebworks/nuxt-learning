@@ -50,6 +50,14 @@
 				exact-active-class="is-exact">
 				Secret page
 			</nuxt-link>
+			<nuxt-link
+				tag="div"
+				to="/markdown"
+				class="dashboard__nav-item"
+				active-class="is-active"
+				exact-active-class="is-exact">
+				Markdown
+			</nuxt-link>
 		</nav>
 	</main>
 </template>
