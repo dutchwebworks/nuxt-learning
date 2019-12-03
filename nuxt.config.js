@@ -114,7 +114,14 @@ module.exports = {
       changefreq: "yearly",
       lastmod: new Date(),
       lastmodrealtime: true
-    }
+    },
+    routes: [
+      {
+        url: "/",
+        changefreq: "monthly",
+        priority: 1,
+      }
+    ]
   },
 
   /*
