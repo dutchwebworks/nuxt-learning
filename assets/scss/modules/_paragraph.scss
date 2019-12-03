@@ -11,4 +11,12 @@
 	strong {
 		font-weight: 700;
 	}
+
+	a {
+		color: map-get($colors, 02);
+
+		&:hover {
+			color: map-get($colors, 01);
+		}
+	}
 }

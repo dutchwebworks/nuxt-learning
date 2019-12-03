@@ -13,6 +13,9 @@
 	import TheFooter from "@/components/TheFooter";
 
 	export default {
+		head: {
+			titleTemplate: '%s | Nuxt Learning'
+		},
 		middleware: [
 			'authenticated'
 		],

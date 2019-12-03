@@ -33,6 +33,12 @@
 
 <script>
 	export default {
+		head: {
+			title: "Login",
+			meta: [
+				{ hid: "description", name: "description", content: "Login to view our secret page" }
+			]
+		},
 		data: () => ({
 			username: null			
 		}),

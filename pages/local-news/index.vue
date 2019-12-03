@@ -2,6 +2,10 @@
 	<main class="news">
 		<h1 class="heading">Local news</h1>
 
+		<p class="paragraph">Generating SEO friendly URL's with slug title names and dates for news items</p>
+
+		<hr>
+
 		<section class="local-news__items">
 			<LocalNewsThumbItem
 				v-for="item in newsList"
@@ -16,6 +20,12 @@
 	import LocalNewsThumbItem from "@/components/LocalNewsThumbItem";
 
     export default {
+		head: {
+			title: "Local news",
+			meta: [
+				{ hid: "description", name: "description", content: "Demo of local news via Vuex store news array" }
+			]
+		},
 		components: {
 			LocalNewsThumbItem
 		},

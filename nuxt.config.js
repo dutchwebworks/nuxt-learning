@@ -1,4 +1,7 @@
 const pkg = require('./package')
+import PurgecssPlugin from 'purgecss-webpack-plugin'
+import glob from 'glob-all'
+import path from 'path'
 
 module.exports = {
   /*
@@ -20,6 +23,9 @@ module.exports = {
   ** Headers of the page
   */
   head: {
+    htmlAttrs: {
+      lang: 'en-US',
+    },
     title: pkg.name,
     meta: [
       { charset: 'utf-8' },
@@ -27,8 +33,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,700' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
@@ -41,6 +46,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    "~/assets/css/tailwind.css",
   	"@/assets/scss/common.scss"
   ],
 
@@ -66,26 +72,95 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
-    // Doc: https://www.npmjs.com/package/@nuxtjs/style-resources
     '@nuxtjs/style-resources',
+    'nuxt-webfontloader',
+    '@nuxtjs/markdownit',
+    'nuxt-purgecss',
+    "@nuxtjs/sitemap"
   ],
 
   /*
+  ** Markdown options
+  ** https://www.npmjs.com/package/@nuxtjs/markdownit
+  ** See https://github.com/markdown-it/markdown-it
+  */
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true
+  },
+
+  /*
+  ** Web font loader
+  ** https://github.com/Developmint/nuxt-webfontloader
+  */
+  webfontloader: {
+    google: {
+      families: ['Roboto:300,400,700&display=swap']
+    }
+  },
+
+  /*
+  ** Sitemap options
+  ** https://www.npmjs.com/package/@nuxtjs/sitemap
+  */
+  sitemap: {
+    hostname: "https://nuxt-learning.herokuapp.com",
+    exclude: [
+      "/secret"
+    ],
+    defaults: {
+      changefreq: "yearly",
+      lastmod: new Date(),
+      lastmodrealtime: true
+    },
+    routes: [
+      {
+        url: "/",
+        changefreq: "monthly",
+        priority: 1,
+      }
+    ]
+  },
+
+  /*
   ** Nuxt.js global style resources
+  ** https://www.npmjs.com/package/@nuxtjs/style-resources
   */
   styleResources: {
-    // Doc: https://www.npmjs.com/package/@nuxtjs/style-resources
     scss: [
       '@/assets/scss/helpers/*.scss'
     ]
   },
+
+  /*
+  ** Nuxt.js global style resources
+  ** https://regenrek.com/posts/how-to-use-tailwind-css-1.0.1-in-nuxt/#bonus-use-purgecss-to-remove-unused-css-in-the-production-build
+  */
+  purgeCSS: {
+    // https://www.purgecss.com/whitelisting#specific-selectors
+    whitelist: [
+
+    ],
+    whitelistPatterns: [/^is-/],
+  },
+
   /*
   ** Axios module configuration
+  ** https://github.com/nuxt-community/axios-module#usage
+  ** https://github.com/nuxt-community/axios-module#options
   */
   axios: {
-    // See https://github.com/nuxt-community/axios-module#options
+
+  },
+
+  /*
+  ** Router config
+  */
+  router: {
+    // linkActiveClass: "is-active",
+    // linkExactActiveClass: "is-exact-active"
   },
 
   /*
@@ -93,6 +168,14 @@ module.exports = {
   */
   build: {
     // analyze: true,
+    extractCSS: true,
+    // https://regenrek.com/posts/how-to-use-tailwind-css-1.0.1-in-nuxt/#4-configure-postcss-in-nuxtconfigjs
+    postcss: {
+      plugins: {
+        tailwindcss: path.resolve(__dirname, './tailwind.config.js')
+      }
+    },
+
     /*
     ** You can extend webpack config here
     */
