@@ -2,7 +2,7 @@
 	<footer class="footer">
 		<p class="footer__body">By Dennis Burger, december 2019</p>
 
-		<p class="footer__body"><a href="https://github.com/dutchwebworks/nuxt-learning" target="_blank">View on Github</a></p>
+		<p class="footer__body"><a href="https://github.com/dutchwebworks/nuxt-learning" rel="noreferrer" target="_blank">View on Github</a></p>
 	</footer>
 </template>
 
