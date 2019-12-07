@@ -51,6 +51,58 @@ module.exports = {
   ],
 
   /*
+  ** Nuxt PWA
+  */
+  pwa: {
+    meta: {
+      mobileAppIOS: true
+    },
+    manifest: {
+      name: "Nuxt Learning",
+      short_name: "Nuxt Learning",
+      description: process.env.npm_package_description,
+      theme_color: "#00bfff",
+      background_color: "#f7fafc",
+      display: "standalone",
+      start_url: "/?utm_source=web_app_manifest",
+      dir: "ltr",
+      lang: "en-en",
+      orientation: "portrait",
+    },
+    workbox: {
+      // dev: true,
+      preCaching: [
+
+      ],
+      runtimeCaching: [
+        {
+          urlPattern: /(png|gif|jpg|jpeg|webp|svg)/,
+          handler: 'cacheFirst',
+          strategyOptions: {
+            cacheName: 'images',
+            cacheExpiration: {
+              maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+              maxEntries: 60
+            }
+          }
+        },
+        {
+          urlPattern: /(ttf|eot|woff|woff2|otf)/,
+          handler: 'cacheFirst',
+          strategyOptions: {
+            cacheName: 'fonts',
+            cacheExpiration: {
+              maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
+              maxEntries: 30
+            },
+            cacheableResponse: { statuses: [0, 200] }
+          }
+        },
+      ]
+    }
+  },
+
+  /*
   ** Plugins to load before mounting the App
   */
   plugins: [
@@ -77,7 +129,8 @@ module.exports = {
     'nuxt-webfontloader',
     '@nuxtjs/markdownit',
     'nuxt-purgecss',
-    "@nuxtjs/sitemap"
+    "@nuxtjs/sitemap",
+    "@nuxtjs/pwa"
   ],
 
   /*
