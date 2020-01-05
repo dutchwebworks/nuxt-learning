@@ -33,7 +33,17 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { href: "/icons/iphone5_splash.png", media: "(device- width: 320px) and(device - height: 568px) and(-webkit - device - pixel - ratio: 2)", rel: "apple - touch - startup - image" },
+      { href: "/icons/iphone6_splash.png", media: "(device- width: 375px) and(device - height: 667px) and(-webkit - device - pixel - ratio: 2)", rel: "apple - touch - startup - image" },
+      { href: "/icons/iphoneplus_splash.png", media: "(device- width: 621px) and(device - height: 1104px) and(-webkit - device - pixel - ratio: 3)", rel: "apple - touch - startup - image" },
+      { href: "/icons/iphonex_splash.png", media: "(device- width: 375px) and(device - height: 812px) and(-webkit - device - pixel - ratio: 3)", rel: "apple - touch - startup - image" },
+      { href: "/icons/iphonexr_splash.png", media: "(device- width: 414px) and(device - height: 896px) and(-webkit - device - pixel - ratio: 2)", rel: "apple - touch - startup - image" },
+      { href: "/icons/iphonexsmax_splash.png", media: "(device- width: 414px) and(device - height: 896px) and(-webkit - device - pixel - ratio: 3)", rel: "apple - touch - startup - image" },
+      { href: "/icons/ipad_splash.png", media: "(device- width: 768px) and(device - height: 1024px) and(-webkit - device - pixel - ratio: 2)", rel: "apple - touch - startup - image" },
+      { href: "/icons/ipadpro1_splash.png", media: "(device- width: 834px) and(device - height: 1112px) and(-webkit - device - pixel - ratio: 2)", rel: "apple - touch - startup - image" },
+      { href: "/icons/ipadpro3_splash.png", media: "(device- width: 834px) and(device - height: 1194px) and(-webkit - device - pixel - ratio: 2)", rel: "apple - touch - startup - image" },
+      { href: "/icons/ipadpro2_splash.png", media: "(device- width: 1024px) and(device - height: 1366px) and(-webkit - device - pixel - ratio: 2)", rel: "apple - touch - startup - image" }
     ]
   },
 
@@ -49,6 +59,60 @@ module.exports = {
     "~/assets/css/tailwind.css",
   	"@/assets/scss/common.scss"
   ],
+
+  /*
+  ** Nuxt PWA
+  */
+  pwa: {
+    meta: {
+      mobileAppIOS: true
+    },
+    manifest: {
+      name: "Nuxt Learning",
+      short_name: "Nuxt Learning",
+      description: process.env.npm_package_description,
+      theme_color: "#00bfff",
+      background_color: "#f7fafc",
+      display: "standalone",
+      start_url: "/?utm_source=web_app_manifest",
+      dir: "ltr",
+      lang: "en-en",
+      orientation: "portrait",
+    },
+    workbox: {
+      dev: true, // Console debug mode
+      preCaching: [
+        "/favicon.ico",
+        "/img/media-nu/hjsxbmvaevzn_wd640.jpg",
+        "/img/media-nu/fjpxu1lazes2_wd640.jpg",
+        "/img/media-nu/xb1xph5a4qfc_wd640.jpg",
+      ],
+      // cacheAssets: false, // for /*
+      // offline: false, // for /_nuxt/*
+      runtimeCaching: [
+
+        {
+          urlPattern: 'https://fonts.googleapis.com/',
+          handler: 'staleWhileRevalidate',
+          strategyOptions: {
+            cacheName: 'google-fonts-stylesheets',
+          }
+        },
+        {
+          urlPattern: 'https://fonts.(?:googleapis|gstatic).com/(.*)/',
+          handler: 'cacheFirst',
+          strategyOptions: {
+            cacheName: 'google-fonts-webfonts',
+            cacheExpiration: {
+              maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
+              maxEntries: 30
+            },
+            cacheableResponse: { statuses: [0, 200] }
+          }
+        }
+      ]
+    }
+  },
 
   /*
   ** Plugins to load before mounting the App
@@ -77,7 +141,8 @@ module.exports = {
     'nuxt-webfontloader',
     '@nuxtjs/markdownit',
     'nuxt-purgecss',
-    "@nuxtjs/sitemap"
+    "@nuxtjs/sitemap",
+    "@nuxtjs/pwa"
   ],
 
   /*

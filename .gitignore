@@ -11,3 +11,6 @@ npm-debug.log
 dist
 # IDE
 .idea
+
+# Service-Worker
+sw.*
