@@ -268,5 +268,15 @@ module.exports = {
   	name: 'page',
   	mode: 'out-in',
   	type: 'animation'
+  },
+
+  /*
+  ** Allow dev tools in production
+  */
+  vue: {
+    config: {
+      productionTip: false,
+      devtools: true
+    }
   }
 }
