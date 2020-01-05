@@ -80,34 +80,36 @@ module.exports = {
       orientation: "portrait",
     },
     workbox: {
-      // dev: true,
+      dev: true, // Console debug mode
       preCaching: [
-
+        "/favicon.ico",
+        "/img/media-nu/hjsxbmvaevzn_wd640.jpg",
+        "/img/media-nu/fjpxu1lazes2_wd640.jpg",
+        "/img/media-nu/xb1xph5a4qfc_wd640.jpg",
       ],
+      // cacheAssets: false, // for /*
+      // offline: false, // for /_nuxt/*
       runtimeCaching: [
+
         {
-          urlPattern: /(png|gif|jpg|jpeg|webp|svg)/,
-          handler: 'cacheFirst',
+          urlPattern: 'https://fonts.googleapis.com/',
+          handler: 'staleWhileRevalidate',
           strategyOptions: {
-            cacheName: 'images',
-            cacheExpiration: {
-              maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
-              maxEntries: 60
-            }
+            cacheName: 'google-fonts-stylesheets',
           }
         },
         {
-          urlPattern: /(ttf|eot|woff|woff2|otf)/,
+          urlPattern: 'https://fonts.(?:googleapis|gstatic).com/(.*)/',
           handler: 'cacheFirst',
           strategyOptions: {
-            cacheName: 'fonts',
+            cacheName: 'google-fonts-webfonts',
             cacheExpiration: {
               maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
               maxEntries: 30
             },
             cacheableResponse: { statuses: [0, 200] }
           }
-        },
+        }
       ]
     }
   },
