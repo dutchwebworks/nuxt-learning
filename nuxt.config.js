@@ -80,7 +80,7 @@ module.exports = {
       orientation: "portrait",
     },
     workbox: {
-      dev: true, // Console debug mode
+      dev: false, // Console debug mode
       preCaching: [
         "/favicon.ico",
         "/img/media-nu/hjsxbmvaevzn_wd640.jpg",
