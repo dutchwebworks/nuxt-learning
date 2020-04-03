@@ -33,7 +33,6 @@
 				exact-active-class="is-exact">
 				Local News
 			</nuxt-link>
-			</nuxt-link>
 			<nuxt-link
 				tag="div"
 				to="/world-news"
@@ -59,7 +58,7 @@
 				Markdown
 			</nuxt-link>
 		</nav>
-	</main>
+	</main>	
 </template>
 
 <script>
