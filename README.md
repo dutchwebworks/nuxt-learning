@@ -6,7 +6,7 @@ Learning about Nuxt and VueJS in a SPA (Single-Page-App) setup using `create-nux
 
 ``` bash
 # install dependencies
-$ npm install install
+$ npm install 
 
 # serve with hot reload at localhost:3000
 $ npm run dev
