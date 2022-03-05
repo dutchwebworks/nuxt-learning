@@ -4,6 +4,10 @@
   "description": "Learning about Nuxt",
   "author": "Dennis Burger",
   "private": true,
+  "engines": {
+    "node": "17.x",
+    "npm": "8.x"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build --modern=client",
