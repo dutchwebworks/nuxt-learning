@@ -1,16 +1,11 @@
 {
   "private": true,
-  "engines": {
-    "node": "18.x"
-  },
-  "scripts": {
+    "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "start": "npm run build",
-    "heroku-postbuild": "npm run build"
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
     "nuxt": "3.0.0"
