@@ -1,7 +1,6 @@
 <template>
     <header>
         <div>Welcome to my test site</div>
-        <div><img src="/icon.png" alt="NuxtJS" width="64" height="64" /></div>
     </header>
 </template>
 
