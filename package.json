@@ -4,10 +4,6 @@
   "description": "Learning about Nuxt",
   "author": "Dennis Burger",
   "private": true,
-  "engines": {
-    "node": "18.12.1",
-    "npm": "8.19.2"
-  },
   "scripts": {
     "dev": "nuxt",
     "build": "NODE_OPTIONS=--openssl-legacy-provider nuxt build --modern=client",
