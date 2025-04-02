@@ -29,16 +29,16 @@
 
     .header__bar,
     .header__user {
-        @include h.flexbox;
-        @include h.justify-content(space-between);
+        display: flex;
+        justify-content: space-between;
     }
 
     .header__bar {
-        @include h.align-items(flex-start);
+        align-items: start;
     }
 
     .header__user {
-        @include h.align-items(flex-end);
+        align-items: end;
 
         .paragraph {
             margin-bottom: 0;

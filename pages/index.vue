@@ -37,10 +37,10 @@
         grid-auto-rows: 175px;
 
         > a {
-            @include h.flexbox;
-            @include h.flex-direction(column);
-            @include h.justify-content(center);
-            @include h.align-items(center);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             border-radius: h.$border-radius;
             text-align: center;
             font-weight: 700;
