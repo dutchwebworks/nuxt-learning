@@ -1,0 +1,25 @@
+@use "sass:map";
+@use "../helpers/config" as c;
+
+// ---------------------------------------------
+// Block
+// ---------------------------------------------
+
+.paragraph {
+    color: map.get(c.$colors, 03);
+    font-size: 16px;
+    line-height: 1.6;
+    font-family: c.$font-custom;
+
+    strong {
+        font-weight: 700;
+    }
+
+    a {
+        color: map.get(c.$colors, 02);
+
+        &:hover {
+            color: map.get(c.$colors, 01);
+        }
+    }
+}

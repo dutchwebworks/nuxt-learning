@@ -1,0 +1,13 @@
+@use "sass:map";
+@use "../helpers/config" as c;
+
+// ---------------------------------------------
+// Block
+// ---------------------------------------------
+
+hr {
+    height: 0;
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px solid map.get(c.$colors, 04);
+}

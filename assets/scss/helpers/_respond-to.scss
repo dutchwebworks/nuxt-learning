@@ -1,0 +1,13 @@
+@use "config" as c;
+
+@mixin respond-to-max($value) {
+    @media (max-width: map.get(c.$breakpoints, $value)-1 + "px") {
+        @content;
+    }
+}
+
+@mixin respond-to-min($value) {
+    @media (min-width: map.get(c.$breakpoints, $value) + "px") {
+        @content;
+    }
+}

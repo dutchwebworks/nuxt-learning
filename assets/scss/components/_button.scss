@@ -1,0 +1,45 @@
+@use "sass:map";
+@use "../helpers/config" as c;
+
+// ---------------------------------------------
+// Block
+// ---------------------------------------------
+
+.button {
+    padding: 15px 30px;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 26px;
+    color: white;
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+
+    &[disabled] {
+        cursor: not-allowed;
+        background-color: map.get(c.$colors, 04);
+    }
+}
+
+// ---------------------------------------------
+// Modifier
+// ---------------------------------------------
+
+.button--01 {
+    background-color: map.get(c.$colors, 01);
+}
+
+.button--02 {
+    background-color: map.get(c.$colors, 02);
+}
+
+.button--03 {
+    color: map.get(c.$colors, 03);
+    background-color: white;
+}
+
+.button--04 {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: map.get(c.$colors, 02);
+}

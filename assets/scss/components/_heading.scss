@@ -1,0 +1,13 @@
+@use "sass:map";
+@use "../helpers/config" as c;
+
+// ---------------------------------------------
+// Block
+// ---------------------------------------------
+
+.heading {
+    color: map.get(c.$colors, 01);
+    font-size: 32px;
+    font-weight: 300;
+    font-family: c.$font-custom;
+}
